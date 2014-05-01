@@ -132,7 +132,6 @@ class MediaArtistNativeHelper {
          *
          * @param taskId id of the task reporting an update.
          * @param progress progress of the task [0..100].
-         * @see BasicEdit#TASK_ENCODING
          */
         public void OnProgressUpdate(int taskId, int progress);
     }
@@ -2062,7 +2061,7 @@ class MediaArtistNativeHelper {
     /**
      * Sets the export audio codec
      *
-     * @param export audio codec
+     * @param codec audio codec
      *
      */
     void setAudioCodec(int codec) {
@@ -2071,7 +2070,7 @@ class MediaArtistNativeHelper {
     /**
      * Sets the export video codec
      *
-     * @param export video codec
+     * @param codec video codec
      *
      */
     void setVideoCodec(int codec) {
@@ -2095,7 +2094,7 @@ class MediaArtistNativeHelper {
     /**
      * Gets the audio regenerate flag
      *
-     * @param return The boolean to get the audio regenerate flag
+     * @return The boolean to get the audio regenerate flag
      *
      */
     boolean getAudioflag() {
@@ -2516,7 +2515,7 @@ class MediaArtistNativeHelper {
      * and also adjust the start time and duration of effects and overlays
      * w.r.t to total story board time
      *
-     * @param m1 Media item associated with effect
+     * @param m Media item associated with effect
      * @param effectSettings The EffectSettings reference containing
      *      effect specific data
      * @param beginCutTime The begin cut time of the clip associated with effect
@@ -2601,7 +2600,7 @@ class MediaArtistNativeHelper {
      * @param transition The Transition reference
      * @param editSettings The EditSettings reference
      * @param clipPropertiesArray The clip Properties array
-     * @param i The index in clip Properties array for current clip
+     * @param index The index in clip Properties array for current clip
      */
     private void generateTransition(Transition transition, EditSettings editSettings,
             PreviewClipProperties clipPropertiesArray, int index) {
@@ -2639,7 +2638,7 @@ class MediaArtistNativeHelper {
      *
      * @param m The media item
      * @param clipProperties The clip properties array reference
-     * @param i The index in clip Properties array for current clip
+     * @param index The index in clip Properties array for current clip
      */
     private void adjustVolume(MediaItem m, PreviewClipProperties clipProperties,
                               int index) {
@@ -2661,7 +2660,7 @@ class MediaArtistNativeHelper {
      *
      * @param m The media item
      * @param clipProperties The clip properties array reference
-     * @param i The index in clip Properties array for current clip
+     * @param index The index in clip Properties array for current clip
      */
     private void checkOddSizeImage(MediaItem m, PreviewClipProperties clipProperties, int index) {
         if (m instanceof MediaImageItem) {
@@ -2684,7 +2683,7 @@ class MediaArtistNativeHelper {
      * height among all the clips
      *
      * @param m The media item
-     * @param i The index in clip Properties array for current clip
+     * @param index The index in clip Properties array for current clip
      * @param maxHeight The max height from the clip properties
      *
      * @return Updates the max height if current clip's height is greater
@@ -3283,7 +3282,7 @@ class MediaArtistNativeHelper {
      * Maps the audio codec type used in native layer
      * to audio codec type used in JAVA layer
      *
-     * @param audioType The audio codec type in native layer
+     * @param codecType The audio codec type in native layer
      *
      * @return The audio codec type in JAVA layer
      */
@@ -3746,7 +3745,7 @@ class MediaArtistNativeHelper {
     /**
      * This methods takes care of stopping the Export process
      *
-     * @param The input file name for which export has to be stopped
+     * @param filename The input file name for which export has to be stopped
      */
     void stop(String filename) {
         try {
