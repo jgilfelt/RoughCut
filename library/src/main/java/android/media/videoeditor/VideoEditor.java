@@ -76,7 +76,7 @@ public interface VideoEditor {
      * This listener interface is used by the VideoEditor to emit preview
      * progress notifications. This callback should be invoked after the number
      * of frames specified by
-     * {@link #startPreview(android.view.SurfaceHolder surfaceHolder, long fromMs,
+     * {@link #startPreview(android.view.SurfaceHolder surfaceHolder, long fromMs, long toMs, boolean loop,
      *           int callbackAfterFrameCount, android.media.videoeditor.VideoEditor.PreviewProgressListener listener)}
      */
     public interface PreviewProgressListener {
@@ -123,8 +123,8 @@ public interface VideoEditor {
     /**
      * This listener interface is used by the VideoEditor to emit export status
      * notifications.
-     * {@link #export(String filename, android.media.videoeditor.VideoEditor.ExportProgressListener listener,
-     *                int height, int bitrate)}
+     * {@link #export(String filename, int height, int bitrate,
+     *                android.media.videoeditor.VideoEditor.ExportProgressListener listener)}
      */
     public interface ExportProgressListener {
         /**
@@ -153,7 +153,7 @@ public interface VideoEditor {
          * processing a media object such as a Transition, AudioTrack & Kenburns
          * This method may be called maximum 100 times for one operation.
          *
-         * @param object The object that is being processed such as a Transition
+         * @param item The object that is being processed such as a Transition
          *               or AudioTrack
          * @param action The type of processing being performed
          * @param progress The progress in %. At the beginning of the operation,
@@ -331,7 +331,7 @@ public interface VideoEditor {
     /**
      * Persist the current internal state of VideoEditor to the project path.
      * The VideoEditor state may be restored by invoking the
-     * {@link VideoEditorFactory#load(String)} method. This method does not
+     * {@link VideoEditorFactory#load(String, boolean)} method. This method does not
      * release the internal in-memory state of the VideoEditor. To release
      * the in-memory state of the VideoEditor the {@link #release()} method
      * must be invoked.
@@ -375,8 +375,8 @@ public interface VideoEditor {
      * @throws IllegalStateException if a preview or an export is in progress or
      *        if no MediaItem has been added
      * @throws java.util.concurrent.CancellationException if export is canceled by calling
-     *        {@link #cancelExport()}
-     * @throws UnsupportOperationException if multiple simultaneous export() are
+     *        {@link #cancelExport(String)}
+     * @throws IOException if multiple simultaneous export() are
      *        not allowed
      */
     public void export(String filename, int height, int bitrate,
@@ -418,8 +418,8 @@ public interface VideoEditor {
      * @throws IllegalStateException if a preview or an export is in progress or
      *        if no MediaItem has been added
      * @throws java.util.concurrent.CancellationException if export is cancelled by calling
-     *        {@link #cancelExport()}
-     * @throws UnsupportOperationException if multiple simultaneous export() are
+     *        {@link #cancelExport(String)}
+     * @throws IOException if multiple simultaneous export() are
      *        not allowed
      */
     public void export(String filename, int height, int bitrate, int audioCodec,

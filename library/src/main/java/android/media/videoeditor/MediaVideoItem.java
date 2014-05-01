@@ -583,7 +583,7 @@ public class MediaVideoItem extends MediaItem {
     }
 
     /**
-     * Get the audio waveform file name if {@link #extractAudioWaveform()} was
+     * Get the audio waveform file name if {@link #extractAudioWaveform(ExtractAudioWaveformProgressListener)} was
      * successful. The file format is as following:
      * <ul>
      *  <li>first 4 bytes provide the number of samples for each value, as big-endian signed</li>
@@ -636,7 +636,7 @@ public class MediaVideoItem extends MediaItem {
      *
      * @param volumePercent in %/. 100% means no change; 50% means half value, 200%
      *            means double, 0% means silent.
-     * @throws UsupportedOperationException if volume value is not supported
+     * @throws IllegalArgumentException if volume value is not supported
      */
     public void setVolume(int volumePercent) {
         if ((volumePercent <0) || (volumePercent >100)) {

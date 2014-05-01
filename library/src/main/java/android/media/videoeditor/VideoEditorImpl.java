@@ -44,7 +44,7 @@ import android.util.Xml;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.os.Debug;
-import android.os.SystemProperties;
+//import android.os.SystemProperties;
 import android.os.Environment;
 
 /**
@@ -147,7 +147,7 @@ public class VideoEditorImpl implements VideoEditor {
      */
     public VideoEditorImpl(String projectPath) throws IOException {
         String s;
-        s = SystemProperties.get("libc.debug.malloc");
+        s = "0"; // SystemProperties.get("libc.debug.malloc");
         if (s.equals("1")) {
             mMallocDebug = true;
             try {
@@ -1769,7 +1769,7 @@ public class VideoEditorImpl implements VideoEditor {
     /**
      * Remove the transition after this media item
      *
-     * @param mediaItem The media item
+     * @param index The media item
      */
     private void removeTransitionAfter(int index) {
         final MediaItem mediaItem = mMediaItems.get(index);
@@ -1952,25 +1952,25 @@ public class VideoEditorImpl implements VideoEditor {
     private static void dumpHeap (String filename) throws Exception {
         /* Cleanup as much as possible before dump
          */
-        System.gc();
-        System.runFinalization();
-        Thread.sleep(1000);
-        String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            String extDir =
-             Environment.getExternalStorageDirectory().toString();
-
-            /* If dump file already exists, then delete it first
-            */
-            if ((new File(extDir + "/" + filename + ".dump")).exists()) {
-                (new File(extDir + "/" + filename + ".dump")).delete();
-            }
-            /* Dump native heap
-            */
-            FileOutputStream ost =
-             new FileOutputStream(extDir + "/" + filename + ".dump");
-            Debug.dumpNativeHeap(ost.getFD());
-            ost.close();
-        }
+//        System.gc();
+//        System.runFinalization();
+//        Thread.sleep(1000);
+//        String state = Environment.getExternalStorageState();
+//        if (Environment.MEDIA_MOUNTED.equals(state)) {
+//            String extDir =
+//             Environment.getExternalStorageDirectory().toString();
+//
+//            /* If dump file already exists, then delete it first
+//            */
+//            if ((new File(extDir + "/" + filename + ".dump")).exists()) {
+//                (new File(extDir + "/" + filename + ".dump")).delete();
+//            }
+//            /* Dump native heap
+//            */
+//            FileOutputStream ost =
+//             new FileOutputStream(extDir + "/" + filename + ".dump");
+//            Debug.dumpNativeHeap(ost.getFD());
+//            ost.close();
+//        }
     }
 }

@@ -360,7 +360,7 @@ public abstract class MediaItem {
     /**
      * Set the filepath of the generated image clip when the effect is added.
      *
-     * @param The filepath of the generated image clip.
+     * @param generatedFilePath The filepath of the generated image clip.
      */
     void setGeneratedImageClip(String generatedFilePath) {
         mGeneratedImageClip = generatedFilePath;
@@ -692,7 +692,7 @@ public abstract class MediaItem {
     /**
      * Initialises ClipSettings fields to default value
      *
-     * @param ClipSettings object
+     * @param clipSettings ClipSettings object
      *{@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
      */
     void initClipSettings(ClipSettings clipSettings) {
@@ -747,7 +747,7 @@ public abstract class MediaItem {
      * begin transition at first media item in storyboard
      * or end transition at last media item in storyboard
      *
-     * @param ClipSettings object
+     * @param clipSettings ClipSettings object
      *{@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
      */
     void generateBlankFrame(ClipSettings clipSettings) {

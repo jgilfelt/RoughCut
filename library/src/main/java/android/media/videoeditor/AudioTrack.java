@@ -108,7 +108,7 @@ public class AudioTrack {
      * @param loop true to loop the audio track
      * @param volume The volume in percentage
      * @param muted true if the audio track is muted
-     * @param threshold Ducking will be activated when the relative energy in
+     * @param duckThreshold Ducking will be activated when the relative energy in
      *         the media items audio signal goes above this value. The valid
      *         range of values is 0 to 90.
      * @param duckedTrackVolume The relative volume of the audio track when
