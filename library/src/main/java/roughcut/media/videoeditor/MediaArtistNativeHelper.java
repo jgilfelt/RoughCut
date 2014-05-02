@@ -47,6 +47,7 @@ class MediaArtistNativeHelper {
 
     static {
         System.loadLibrary("roughcut_jni");
+        //System.loadLibrary("videoeditor_jni");
     }
 
     private static final int MAX_THUMBNAIL_PERMITTED = 8;
