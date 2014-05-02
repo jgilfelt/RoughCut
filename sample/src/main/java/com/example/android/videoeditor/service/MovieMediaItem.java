@@ -18,12 +18,12 @@ package com.example.android.videoeditor.service;
 
 import java.util.List;
 
-import android.media.videoeditor.Effect;
-import android.media.videoeditor.MediaImageItem;
-import android.media.videoeditor.MediaItem;
-import android.media.videoeditor.MediaVideoItem;
-import android.media.videoeditor.Overlay;
-import android.media.videoeditor.WaveformData;
+import roughcut.media.videoeditor.Effect;
+import roughcut.media.videoeditor.MediaImageItem;
+import roughcut.media.videoeditor.MediaItem;
+import roughcut.media.videoeditor.MediaVideoItem;
+import roughcut.media.videoeditor.Overlay;
+import roughcut.media.videoeditor.WaveformData;
 
 
 /**

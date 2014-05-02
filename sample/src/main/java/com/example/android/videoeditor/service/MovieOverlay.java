@@ -18,7 +18,7 @@ package com.example.android.videoeditor.service;
 
 import java.util.Map;
 
-import android.media.videoeditor.Overlay;
+import roughcut.media.videoeditor.Overlay;
 import android.os.Bundle;
 
 

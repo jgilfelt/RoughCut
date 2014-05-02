@@ -15,7 +15,7 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,9 +29,9 @@ import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
 import android.graphics.Bitmap;
-import android.media.videoeditor.MediaArtistNativeHelper.ClipSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.FileType;
-import android.media.videoeditor.MediaArtistNativeHelper.MediaRendering;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.FileType;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.MediaRendering;
 
 /**
  * This abstract class describes the base class for any MediaItem. Objects are
@@ -693,7 +693,7 @@ public abstract class MediaItem {
      * Initialises ClipSettings fields to default value
      *
      * @param clipSettings ClipSettings object
-     *{@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
+     *{@link roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
      */
     void initClipSettings(ClipSettings clipSettings) {
         clipSettings.clipPath = null;
@@ -718,7 +718,7 @@ public abstract class MediaItem {
 
     /**
      * @return ClipSettings object with populated data
-     *{@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
+     *{@link roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
      */
     ClipSettings getClipSettings() {
         MediaVideoItem mVI = null;
@@ -748,7 +748,7 @@ public abstract class MediaItem {
      * or end transition at last media item in storyboard
      *
      * @param clipSettings ClipSettings object
-     *{@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
+     *{@link roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
      */
     void generateBlankFrame(ClipSettings clipSettings) {
         if (!mBlankFrameGenerated) {

@@ -21,7 +21,7 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.media.videoeditor.WaveformData;
+import roughcut.media.videoeditor.WaveformData;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.Display;

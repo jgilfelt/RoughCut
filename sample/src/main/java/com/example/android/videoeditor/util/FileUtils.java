@@ -28,7 +28,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Bitmap.CompressFormat;
-import android.media.videoeditor.MediaProperties;
+import roughcut.media.videoeditor.MediaProperties;
 import android.os.Environment;
 import android.util.Log;
 

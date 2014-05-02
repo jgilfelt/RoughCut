@@ -15,20 +15,20 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.media.videoeditor.MediaArtistNativeHelper.AlphaMagicSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.AudioTransition;
-import android.media.videoeditor.MediaArtistNativeHelper.ClipSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.EditSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.EffectSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.SlideTransitionSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.TransitionSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.VideoTransition;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.AlphaMagicSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.AudioTransition;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.EditSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.EffectSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.SlideTransitionSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.TransitionSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.VideoTransition;
 
 /**
  * This class is super class for all transitions. Transitions (with the
@@ -220,7 +220,7 @@ public abstract class Transition {
      * Get the transition data.
      *
      * @return The transition data in TransitionSettings object
-     * {@link android.media.videoeditor.MediaArtistNativeHelper.TransitionSettings}
+     * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.TransitionSettings}
      */
     TransitionSettings getTransitionSettings() {
         TransitionAlpha transitionAlpha = null;

@@ -15,13 +15,13 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import android.media.videoeditor.VideoEditor.MediaProcessingProgressListener;
+import roughcut.media.videoeditor.VideoEditor.MediaProcessingProgressListener;
 
 /**
  * The VideoEditorFactory class must be used to instantiate VideoEditor objects
@@ -68,13 +68,13 @@ public class VideoEditorFactory {
     /**
      * This is the factory method for instantiating a VideoEditor from the
      * internal state previously saved with the
-     * {@link android.media.videoeditor.VideoEditor#save()} method.
+     * {@link roughcut.media.videoeditor.VideoEditor#save()} method.
      *
      * @param projectPath The path where all VideoEditor internal files
      *            are stored. When a project is deleted the application is
      *            responsible for deleting the path and its contents.
      * @param generatePreview if set to true the
-     *      {@link VideoEditor#generatePreview(android.media.videoeditor.VideoEditor.MediaProcessingProgressListener
+     *      {@link VideoEditor#generatePreview(roughcut.media.videoeditor.VideoEditor.MediaProcessingProgressListener
      *             listener)}
      *      will be called internally to generate any needed transitions.
      *

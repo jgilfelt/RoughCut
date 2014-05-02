@@ -15,13 +15,13 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
 
-import android.media.videoeditor.MediaArtistNativeHelper.Properties;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.Properties;
 
 /**
  * This class allows to handle an audio track. This audio file is mixed with the
@@ -233,7 +233,7 @@ public class AudioTrack {
      * Get the audio codec of the source of this audio track
      *
      * @return The audio codec of the source of this audio track
-     * {@link android.media.videoeditor.MediaProperties}
+     * {@link roughcut.media.videoeditor.MediaProperties}
      */
     public int getAudioType() {
         return mAudioType;

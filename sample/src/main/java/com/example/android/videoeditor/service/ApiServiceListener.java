@@ -17,8 +17,8 @@
 package com.example.android.videoeditor.service;
 
 import android.graphics.Bitmap;
-import android.media.videoeditor.AudioTrack;
-import android.media.videoeditor.MediaItem;
+import roughcut.media.videoeditor.AudioTrack;
+import roughcut.media.videoeditor.MediaItem;
 import android.net.Uri;
 import android.os.Bundle;
 

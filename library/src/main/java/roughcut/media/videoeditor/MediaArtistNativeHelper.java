@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,9 +30,11 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Matrix;
-import android.media.videoeditor.VideoEditor.ExportProgressListener;
-import android.media.videoeditor.VideoEditor.PreviewProgressListener;
-import android.media.videoeditor.VideoEditor.MediaProcessingProgressListener;
+import roughcut.media.videoeditor.VideoEditor.ExportProgressListener;
+import roughcut.media.videoeditor.VideoEditor.PreviewProgressListener;
+import roughcut.media.videoeditor.VideoEditor.MediaProcessingProgressListener;
+
+import android.media.videoeditor.VideoEditorProfile;
 import android.util.Log;
 import android.util.Pair;
 import android.view.Surface;
@@ -44,7 +46,7 @@ class MediaArtistNativeHelper {
     private static final String TAG = "MediaArtistNativeHelper";
 
     static {
-        System.loadLibrary("videoeditor_jni");
+        System.loadLibrary("roughcut_jni");
     }
 
     private static final int MAX_THUMBNAIL_PERMITTED = 8;
@@ -956,7 +958,7 @@ class MediaArtistNativeHelper {
     /** Defines the Slide transition settings. */
     public static class SlideTransitionSettings {
         /**
-         * Direction of the slide transition. See {@link android.media.videoeditor.MediaArtistNativeHelper.SlideDirection
+         * Direction of the slide transition. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.SlideDirection
          * SlideDirection} for valid values.
          */
         public int direction;
@@ -990,7 +992,7 @@ class MediaArtistNativeHelper {
         public String clipOriginalPath;
 
         /**
-         * File type of the clip. See {@link android.media.videoeditor.MediaArtistNativeHelper.FileType FileType} for valid
+         * File type of the clip. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.FileType FileType} for valid
          * values.
          */
         public int fileType;
@@ -1040,7 +1042,7 @@ class MediaArtistNativeHelper {
         public int panZoomTopLeftYEnd;
 
         /**
-         * Set The media rendering. See {@link android.media.videoeditor.MediaArtistNativeHelper.MediaRendering MediaRendering}
+         * Set The media rendering. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.MediaRendering MediaRendering}
          * for valid values.
          */
         public int mediaRendering;
@@ -1065,19 +1067,19 @@ class MediaArtistNativeHelper {
         public int duration;
 
         /**
-         * Transition type for video. See {@link android.media.videoeditor.MediaArtistNativeHelper.VideoTransition
+         * Transition type for video. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoTransition
          * VideoTransition} for valid values.
          */
         public int videoTransitionType;
 
         /**
-         * Transition type for audio. See {@link android.media.videoeditor.MediaArtistNativeHelper.AudioTransition
+         * Transition type for audio. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.AudioTransition
          * AudioTransition} for valid values.
          */
         public int audioTransitionType;
 
         /**
-         * Transition behaviour. See {@link android.media.videoeditor.MediaArtistNativeHelper.TransitionBehaviour
+         * Transition behaviour. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.TransitionBehaviour
          * TransitionBehaviour} for valid values.
          */
         public int transitionBehaviour;
@@ -1086,13 +1088,13 @@ class MediaArtistNativeHelper {
          * Settings for AlphaMagic transition. Only needs to be set if
          * <code>videoTransitionType</code> is set to
          * <code>VideoTransition.ALPHA_MAGIC</code>. See
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.AlphaMagicSettings AlphaMagicSettings}.
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.AlphaMagicSettings AlphaMagicSettings}.
          */
         public AlphaMagicSettings alphaSettings;
 
         /**
          * Settings for the Slide transition. See
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.SlideTransitionSettings SlideTransitionSettings}.
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.SlideTransitionSettings SlideTransitionSettings}.
          */
         public SlideTransitionSettings slideSettings;
     }
@@ -1140,7 +1142,7 @@ class MediaArtistNativeHelper {
         /** Background music file. */
         public String file;
 
-        /** File type. See {@link android.media.videoeditor.MediaArtistNativeHelper.FileType FileType} for valid values. */
+        /** File type. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.FileType FileType} for valid values. */
         public int fileType;
 
         /**
@@ -1201,13 +1203,13 @@ class MediaArtistNativeHelper {
         public int duration;
 
         /**
-         * Video effect type. See {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect VideoEffect} for valid
+         * Video effect type. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect VideoEffect} for valid
          * values.
          */
         public int videoEffectType;
 
         /**
-         * Audio effect type. See {@link android.media.videoeditor.MediaArtistNativeHelper.AudioEffect AudioEffect} for valid
+         * Audio effect type. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.AudioEffect AudioEffect} for valid
          * values.
          */
         public int audioEffectType;
@@ -1228,7 +1230,7 @@ class MediaArtistNativeHelper {
          * Framing file.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise
          * this field is ignored.
          */
         public String framingFile;
@@ -1237,7 +1239,7 @@ class MediaArtistNativeHelper {
          * Framing buffer.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise
          * this field is ignored.
          */
         public int[] framingBuffer;
@@ -1259,8 +1261,8 @@ class MediaArtistNativeHelper {
          * text in the text effect.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT}. Otherwise this field is
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT}. Otherwise this field is
          * ignored.
          */
         public int topLeftX;
@@ -1272,8 +1274,8 @@ class MediaArtistNativeHelper {
          * text in the text effect.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT}. Otherwise this field is
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT}. Otherwise this field is
          * ignored.
          */
         public int topLeftY;
@@ -1284,7 +1286,7 @@ class MediaArtistNativeHelper {
          * video size.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise
          * this field is ignored.
          */
         public boolean framingResize;
@@ -1298,7 +1300,7 @@ class MediaArtistNativeHelper {
          * Text to insert in the video.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT}. Otherwise this
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT}. Otherwise this
          * field is ignored.
          */
         public String text;
@@ -1307,7 +1309,7 @@ class MediaArtistNativeHelper {
          * Text attributes for the text to insert in the video.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT}. Otherwise this
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT}. Otherwise this
          * field is ignored. For more details about this field see the
          * integration guide.
          */
@@ -1324,7 +1326,7 @@ class MediaArtistNativeHelper {
          * results in high effect strength.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FIFTIES VideoEffect.FIFTIES}. Otherwise
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FIFTIES VideoEffect.FIFTIES}. Otherwise
          * this field is ignored.
          */
         public int fiftiesFrameRate;
@@ -1333,8 +1335,8 @@ class MediaArtistNativeHelper {
          * RGB 16 color of the RGB16 and gradient color effect.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#COLORRGB16 VideoEffect.COLORRGB16} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#GRADIENT VideoEffect.GRADIENT}. Otherwise this
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#COLORRGB16 VideoEffect.COLORRGB16} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#GRADIENT VideoEffect.GRADIENT}. Otherwise this
          * field is ignored.
          */
         public int rgb16InputColor;
@@ -1343,8 +1345,8 @@ class MediaArtistNativeHelper {
          * Start alpha blending percentage.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
          * is ignored.
          */
         public int alphaBlendingStartPercent;
@@ -1353,8 +1355,8 @@ class MediaArtistNativeHelper {
          * Middle alpha blending percentage.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
          * is ignored.
          */
         public int alphaBlendingMiddlePercent;
@@ -1363,8 +1365,8 @@ class MediaArtistNativeHelper {
          * End alpha blending percentage.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
          * is ignored.
          */
         public int alphaBlendingEndPercent;
@@ -1373,8 +1375,8 @@ class MediaArtistNativeHelper {
          * Duration, in percentage of effect duration of the fade-in phase.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
          * is ignored.
          */
         public int alphaBlendingFadeInTimePercent;
@@ -1383,8 +1385,8 @@ class MediaArtistNativeHelper {
          * Duration, in percentage of effect duration of the fade-out phase.
          * <p>
          * This field is only used when the field <code>videoEffectType</code>
-         * is set to {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
+         * is set to {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#TEXT VideoEffect.TEXT} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoEffect#FRAMING VideoEffect.FRAMING}. Otherwise this field
          * is ignored.
          */
         public int alphaBlendingFadeOutTimePercent;
@@ -1406,7 +1408,7 @@ class MediaArtistNativeHelper {
         public String clipPath;
 
         /**
-         * File type of the clip. See {@link android.media.videoeditor.MediaArtistNativeHelper.FileType FileType} for valid
+         * File type of the clip. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.FileType FileType} for valid
          * values.
          */
         public int fileType;
@@ -1417,7 +1419,7 @@ class MediaArtistNativeHelper {
         public long endPlayTime;
 
         /**
-         * Set The media rendering. See {@link android.media.videoeditor.MediaArtistNativeHelper.MediaRendering MediaRendering}
+         * Set The media rendering. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.MediaRendering MediaRendering}
          * for valid values.
          */
         public int mediaRendering;
@@ -1511,7 +1513,7 @@ class MediaArtistNativeHelper {
         public EffectSettings[] effectSettingsArray;
 
         /**
-         * Video frame rate of the output clip. See {@link android.media.videoeditor.MediaArtistNativeHelper.VideoFrameRate
+         * Video frame rate of the output clip. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoFrameRate
          * VideoFrameRate} for valid values.
          */
         public int videoFrameRate;
@@ -1521,13 +1523,13 @@ class MediaArtistNativeHelper {
 
         /**
          * Size of the video frames in the output clip. See
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoFrameSize VideoFrameSize} for valid values.
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoFrameSize VideoFrameSize} for valid values.
          */
         public int videoFrameSize;
 
         /**
          * Format of the video stream in the output clip. See
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.VideoFormat VideoFormat} for valid values.
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.VideoFormat VideoFormat} for valid values.
          */
         public int videoFormat;
 
@@ -1543,13 +1545,13 @@ class MediaArtistNativeHelper {
 
         /**
          * Format of the audio stream in the output clip. See
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.AudioFormat AudioFormat} for valid values.
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.AudioFormat AudioFormat} for valid values.
          */
         public int audioFormat;
 
         /**
          * Sampling frequency of the audio stream in the output clip. See
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.AudioSamplingFrequency AudioSamplingFrequency} for valid
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.AudioSamplingFrequency AudioSamplingFrequency} for valid
          * values.
          */
         public int audioSamplingFreq;
@@ -1565,21 +1567,21 @@ class MediaArtistNativeHelper {
          * Number of audio channels in output clip. Use <code>0</code> for none,
          * <code>1</code> for mono or <code>2</code> for stereo. None is only
          * allowed when the <code>audioFormat</code> field is set to
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.AudioFormat#NO_AUDIO AudioFormat.NO_AUDIO} or
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.AudioFormat#NULL_AUDIO AudioFormat.NULL_AUDIO} Mono is only
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.AudioFormat#NO_AUDIO AudioFormat.NO_AUDIO} or
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.AudioFormat#NULL_AUDIO AudioFormat.NULL_AUDIO} Mono is only
          * allowed when the <code>audioFormat</code> field is set to
-         * {@link android.media.videoeditor.MediaArtistNativeHelper.AudioFormat#AAC AudioFormat.AAC}
+         * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.AudioFormat#AAC AudioFormat.AAC}
          */
         public int audioChannels;
 
-        /** Video bitrate. See {@link android.media.videoeditor.MediaArtistNativeHelper.Bitrate Bitrate} for valid values. */
+        /** Video bitrate. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.Bitrate Bitrate} for valid values. */
         public int videoBitrate;
 
-        /** Audio bitrate. See {@link android.media.videoeditor.MediaArtistNativeHelper.Bitrate Bitrate} for valid values. */
+        /** Audio bitrate. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.Bitrate Bitrate} for valid values. */
         public int audioBitrate;
 
         /**
-         * Background music settings. See {@link android.media.videoeditor.MediaArtistNativeHelper.BackgroundMusicSettings
+         * Background music settings. See {@link roughcut.media.videoeditor.MediaArtistNativeHelper.BackgroundMusicSettings
          * BackgroundMusicSettings} for valid values.
          */
         public BackgroundMusicSettings backgroundMusicSettings;
@@ -3953,7 +3955,7 @@ class MediaArtistNativeHelper {
      *
      * @return version of ManualEdit
      * @throws RuntimeException if an error occurred
-     * @see android.media.videoeditor.MediaArtistNativeHelper.Version
+     * @see roughcut.media.videoeditor.MediaArtistNativeHelper.Version
      */
     private static native Version getVersion() throws RuntimeException;
 

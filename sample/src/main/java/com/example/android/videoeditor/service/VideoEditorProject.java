@@ -29,10 +29,10 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
 
-import android.media.videoeditor.MediaProperties;
-import android.media.videoeditor.MediaVideoItem;
-import android.media.videoeditor.VideoEditor;
-import android.media.videoeditor.VideoEditor.PreviewProgressListener;
+import roughcut.media.videoeditor.MediaProperties;
+import roughcut.media.videoeditor.MediaVideoItem;
+import roughcut.media.videoeditor.VideoEditor;
+import roughcut.media.videoeditor.VideoEditor.PreviewProgressListener;
 import android.net.Uri;
 import android.util.Xml;
 import android.view.SurfaceHolder;

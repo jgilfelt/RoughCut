@@ -15,7 +15,7 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import android.graphics.Rect;
 

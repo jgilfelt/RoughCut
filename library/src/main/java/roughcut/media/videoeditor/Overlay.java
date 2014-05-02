@@ -15,86 +15,98 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * This is the super class for all effects. An effect can only be applied to a
- * single media item.
+ * This is the super class for all Overlay classes.
  * {@hide}
  */
-public abstract class Effect {
+public abstract class Overlay {
     /**
      *  Instance variables
      */
     private final String mUniqueId;
     /**
-     *  The effect owner
+     *  The overlay owner
      */
     private final MediaItem mMediaItem;
-
-    protected long mDurationMs;
     /**
-     *  The start time of the effect relative to the beginning
-     *  of the media item
+     *  user attributes
      */
+    private final Map<String, String> mUserAttributes;
+
     protected long mStartTimeMs;
+    protected long mDurationMs;
 
     /**
      * Default constructor
      */
     @SuppressWarnings("unused")
-    private Effect() {
-        mMediaItem = null;
-        mUniqueId = null;
-        mStartTimeMs = 0;
-        mDurationMs = 0;
+    private Overlay() {
+        this(null, null, 0, 0);
     }
 
     /**
      * Constructor
      *
      * @param mediaItem The media item owner
-     * @param effectId The effect id
-     * @param startTimeMs The start time relative to the media item to which it
-     *            is applied
-     * @param durationMs The effect duration in milliseconds
+     * @param overlayId The overlay id
+     * @param startTimeMs The start time relative to the media item start time
+     * @param durationMs The duration
+     *
+     * @throws IllegalArgumentException if the file type is not PNG or the
+     *      startTimeMs and durationMs are incorrect.
      */
-    public Effect(MediaItem mediaItem, String effectId, long startTimeMs,
-                  long durationMs) {
+    public Overlay(MediaItem mediaItem, String overlayId, long startTimeMs,
+           long durationMs) {
         if (mediaItem == null) {
             throw new IllegalArgumentException("Media item cannot be null");
         }
 
-        if ((startTimeMs < 0) || (durationMs < 0)) {
-             throw new IllegalArgumentException("Invalid start time Or/And Duration");
+        if ((startTimeMs<0) || (durationMs<0) ) {
+            throw new IllegalArgumentException("Invalid start time and/OR duration");
         }
+
         if (startTimeMs + durationMs > mediaItem.getDuration()) {
             throw new IllegalArgumentException("Invalid start time and duration");
         }
 
         mMediaItem = mediaItem;
-        mUniqueId = effectId;
+        mUniqueId = overlayId;
         mStartTimeMs = startTimeMs;
         mDurationMs = durationMs;
+        mUserAttributes = new HashMap<String, String>();
     }
 
     /**
-     * Get the id of the effect.
+     * Get the overlay ID.
      *
-     * @return The id of the effect
+     * @return The of the overlay
      */
     public String getId() {
         return mUniqueId;
     }
 
     /**
-     * Set the duration of the effect. If a preview or export is in progress,
-     * then this change is effective for next preview or export session.
+     * Get the duration of overlay.
      *
-     * @param durationMs of the effect in milliseconds
+     * @return The duration of the overlay effect
+     */
+    public long getDuration() {
+        return mDurationMs;
+    }
+
+    /**
+     * If a preview or export is in progress, then this change is effective for
+     * next preview or export session.
+     *
+     * @param durationMs The duration in milliseconds
      */
     public void setDuration(long durationMs) {
-        if (durationMs <0) {
+        if (durationMs < 0) {
             throw new IllegalArgumentException("Invalid duration");
         }
 
@@ -111,20 +123,20 @@ public abstract class Effect {
     }
 
     /**
-     * Get the duration of the effect
+     * Get the start time of overlay.
      *
-     * @return The duration of the effect in milliseconds
+     * @return the start time of the overlay
      */
-    public long getDuration() {
-        return mDurationMs;
+    public long getStartTime() {
+        return mStartTimeMs;
     }
 
     /**
-     * Set start time of the effect. If a preview or export is in progress, then
-     * this change is effective for next preview or export session.
+     * Set the start time for the overlay. If a preview or export is in
+     * progress, then this change is effective for next preview or export
+     * session.
      *
-     * @param startTimeMs The start time of the effect relative to the beginning
-     *            of the media item in milliseconds
+     * @param startTimeMs start time in milliseconds
      */
     public void setStartTime(long startTimeMs) {
         if (startTimeMs + mDurationMs > mMediaItem.getDuration()) {
@@ -132,19 +144,11 @@ public abstract class Effect {
         }
 
         getMediaItem().getNativeContext().setGeneratePreview(true);
+
         final long oldStartTimeMs = mStartTimeMs;
         mStartTimeMs = startTimeMs;
 
         mMediaItem.invalidateTransitions(oldStartTimeMs, mDurationMs, mStartTimeMs, mDurationMs);
-    }
-
-    /**
-     * Get the start time of the effect
-     *
-     * @return The start time in milliseconds
-     */
-    public long getStartTime() {
-        return mStartTimeMs;
     }
 
     /**
@@ -159,6 +163,7 @@ public abstract class Effect {
         }
 
         getMediaItem().getNativeContext().setGeneratePreview(true);
+
         final long oldStartTimeMs = mStartTimeMs;
         final long oldDurationMs = mDurationMs;
 
@@ -171,10 +176,29 @@ public abstract class Effect {
     /**
      * Get the media item owner.
      *
-     * @return The media item owner
+     * @return The media item owner.
      */
     public MediaItem getMediaItem() {
         return mMediaItem;
+    }
+
+    /**
+     * Set a user attribute
+     *
+     * @param name The attribute name
+     * @param value The attribute value
+     */
+    public void setUserAttribute(String name, String value) {
+        mUserAttributes.put(name, value);
+    }
+
+    /**
+     * Get the current user attributes set.
+     *
+     * @return The user attributes
+     */
+    public Map<String, String> getUserAttributes() {
+        return mUserAttributes;
     }
 
     /*
@@ -182,10 +206,10 @@ public abstract class Effect {
      */
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Effect)) {
+        if (!(object instanceof Overlay)) {
             return false;
         }
-        return mUniqueId.equals(((Effect)object).mUniqueId);
+        return mUniqueId.equals(((Overlay)object).mUniqueId);
     }
 
     /*

@@ -15,14 +15,14 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
 import android.graphics.Bitmap;
-import android.media.videoeditor.MediaArtistNativeHelper.ClipSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.Properties;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.Properties;
 import android.media.videoeditor.VideoEditorProfile;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -742,7 +742,7 @@ public class MediaVideoItem extends MediaItem {
 
     /**
      * @return The Video media item properties in ClipSettings class object
-     * {@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
+     * {@link roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings}
      */
     ClipSettings getVideoClipProperties() {
         ClipSettings clipSettings = new ClipSettings();

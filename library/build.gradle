@@ -9,6 +9,11 @@ android {
         targetSdkVersion 19
         versionCode 1
         versionName "1.0"
+
+        ndk {
+            abiFilter "armeabi-v7a"
+        }
+
     }
     buildTypes {
         release {

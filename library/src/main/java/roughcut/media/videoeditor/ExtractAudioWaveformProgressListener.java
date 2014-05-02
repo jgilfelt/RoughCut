@@ -15,13 +15,13 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 /**
  * This listener interface is used by
- * {@link MediaVideoItem#extractAudioWaveform(android.media.videoeditor.ExtractAudioWaveformProgressListener listener)}
+ * {@link MediaVideoItem#extractAudioWaveform(roughcut.media.videoeditor.ExtractAudioWaveformProgressListener listener)}
  * or
- * {@link android.media.videoeditor.AudioTrack#extractAudioWaveform(android.media.videoeditor.ExtractAudioWaveformProgressListener listener)}
+ * {@link roughcut.media.videoeditor.AudioTrack#extractAudioWaveform(roughcut.media.videoeditor.ExtractAudioWaveformProgressListener listener)}
  * {@hide}
  */
 public interface ExtractAudioWaveformProgressListener {

@@ -15,7 +15,7 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 /**
  * This class allows to apply color effect on a media item.

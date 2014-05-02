@@ -23,7 +23,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.media.videoeditor.VideoEditor;
+import roughcut.media.videoeditor.VideoEditor;
 import android.os.AsyncTask;
 import android.text.format.DateUtils;
 import android.text.TextPaint;

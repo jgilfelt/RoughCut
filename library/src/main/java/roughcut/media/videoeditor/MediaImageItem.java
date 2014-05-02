@@ -15,7 +15,7 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,10 +23,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import java.util.ArrayList;
-import android.media.videoeditor.MediaArtistNativeHelper.ClipSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.EditSettings;
-import android.media.videoeditor.MediaArtistNativeHelper.FileType;
-import android.media.videoeditor.MediaArtistNativeHelper.Properties;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.EditSettings;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.FileType;
+import roughcut.media.videoeditor.MediaArtistNativeHelper.Properties;
 import android.util.Log;
 import android.util.Pair;
 
@@ -751,7 +751,7 @@ public class MediaImageItem extends MediaItem {
 
     /**
      * @param KenBurnEffect object.
-     * @return an Object of {@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings} with Ken Burn settings
+     * @return an Object of {@link roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings} with Ken Burn settings
      * needed to generate the clip
      */
     private ClipSettings getKenBurns(EffectKenBurns effectKB) {
@@ -841,7 +841,7 @@ public class MediaImageItem extends MediaItem {
 
     /**
      * @param KenBurnEffect object.
-     * @return an Object of {@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings} with Ken Burns
+     * @return an Object of {@link roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings} with Ken Burns
      * generated clip name
      */
     ClipSettings generateKenburnsClip(EffectKenBurns effectKB) {
@@ -882,7 +882,7 @@ public class MediaImageItem extends MediaItem {
     }
 
     /**
-     * @return an Object of {@link android.media.videoeditor.MediaArtistNativeHelper.ClipSettings} with Image Clip
+     * @return an Object of {@link roughcut.media.videoeditor.MediaArtistNativeHelper.ClipSettings} with Image Clip
      * properties data populated.If the image has Ken Burns effect applied,
      * then file path contains generated image clip name with Ken Burns effect
      */

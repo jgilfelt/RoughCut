@@ -19,9 +19,9 @@ package com.example.android.videoeditor.service;
 import com.example.android.videoeditor.EffectType;
 
 import android.graphics.Rect;
-import android.media.videoeditor.Effect;
-import android.media.videoeditor.EffectColor;
-import android.media.videoeditor.EffectKenBurns;
+import roughcut.media.videoeditor.Effect;
+import roughcut.media.videoeditor.EffectColor;
+import roughcut.media.videoeditor.EffectKenBurns;
 
 /**
  * An effect can only be applied to a single media item.

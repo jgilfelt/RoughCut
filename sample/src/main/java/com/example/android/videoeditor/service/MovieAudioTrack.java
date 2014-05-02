@@ -18,10 +18,10 @@ package com.example.android.videoeditor.service;
 
 import java.io.IOException;
 
-import android.media.videoeditor.AudioTrack;
-import android.media.videoeditor.MediaProperties;
-import android.media.videoeditor.VideoEditor;
-import android.media.videoeditor.WaveformData;
+import roughcut.media.videoeditor.AudioTrack;
+import roughcut.media.videoeditor.MediaProperties;
+import roughcut.media.videoeditor.VideoEditor;
+import roughcut.media.videoeditor.WaveformData;
 
 /**
  * This class represents an audio track in the user interface

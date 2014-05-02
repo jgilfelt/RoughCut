@@ -15,6 +15,8 @@
  */
 package android.media.videoeditor;
 
+import roughcut.media.videoeditor.MediaProperties;
+
 /**
  * The VideoEditorProfile class is used to retrieve the
  * predefined videoeditor profile settings for videoeditor applications.

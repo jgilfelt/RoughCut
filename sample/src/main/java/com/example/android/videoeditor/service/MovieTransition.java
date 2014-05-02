@@ -19,12 +19,12 @@ package com.example.android.videoeditor.service;
 import java.io.IOException;
 
 import android.content.Context;
-import android.media.videoeditor.MediaItem;
-import android.media.videoeditor.Transition;
-import android.media.videoeditor.TransitionAlpha;
-import android.media.videoeditor.TransitionCrossfade;
-import android.media.videoeditor.TransitionFadeBlack;
-import android.media.videoeditor.TransitionSliding;
+import roughcut.media.videoeditor.MediaItem;
+import roughcut.media.videoeditor.Transition;
+import roughcut.media.videoeditor.TransitionAlpha;
+import roughcut.media.videoeditor.TransitionCrossfade;
+import roughcut.media.videoeditor.TransitionFadeBlack;
+import roughcut.media.videoeditor.TransitionSliding;
 
 import com.example.android.videoeditor.R;
 import com.example.android.videoeditor.TransitionType;

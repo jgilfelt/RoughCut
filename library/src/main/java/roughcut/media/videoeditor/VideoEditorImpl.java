@@ -15,7 +15,7 @@
  */
 
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,8 +36,8 @@ import org.xmlpull.v1.XmlSerializer;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
-import android.media.videoeditor.MediaImageItem;
-import android.media.videoeditor.MediaItem;
+import roughcut.media.videoeditor.MediaImageItem;
+import roughcut.media.videoeditor.MediaItem;
 import android.media.MediaMetadataRetriever;
 import android.util.Log;
 import android.util.Xml;

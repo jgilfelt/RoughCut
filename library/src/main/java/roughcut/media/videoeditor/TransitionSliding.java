@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.media.videoeditor;
+package roughcut.media.videoeditor;
 
 /**
  * This class allows to create sliding transitions
